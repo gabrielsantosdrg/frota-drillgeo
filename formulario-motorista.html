@@ -238,7 +238,9 @@ function selectTire(val) {
   document.getElementById('opt-bad').className = 'radio-opt' + (val === 'bad' ? ' selected-bad' : '');
 }
 
-function submitForm() {
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxE6KbYJwRtAQqoLnCqitP2u-K3kq8pfhF6xTwAGKIaNSaaYgM5zGvCYB-RJE47hjhe/exec';
+
+async function submitForm() {
   const plate     = document.getElementById('f-plate').value.trim().toUpperCase();
   const model     = document.getElementById('f-model').value;
   const project   = document.getElementById('f-project').value.trim();
@@ -251,17 +253,37 @@ function submitForm() {
     return;
   }
 
-  // Salva no localStorage (mesma chave do dashboard)
-  const records = JSON.parse(localStorage.getItem('drg_records') || '[]');
-  records.push({
+  const btn = document.querySelector('.btn-submit');
+  btn.textContent = 'ENVIANDO...';
+  btn.disabled = true;
+
+  const record = {
     id: Date.now(),
     datetime: new Date().toISOString(),
     plate, model, project, km, lastMaint,
     tires: tireState, obs
-  });
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(record)
+    });
+  } catch (err) {
+    console.warn('Erro ao enviar:', err);
+  }
+
+  // Salva também localmente como cache
+  const records = JSON.parse(localStorage.getItem('drg_records') || '[]');
+  records.push(record);
   localStorage.setItem('drg_records', JSON.stringify(records));
 
-  document.getElementById('form-body').style.display   = 'none';
+  btn.textContent = 'ENVIAR APONTAMENTO';
+  btn.disabled = false;
+
+  document.getElementById('form-body').style.display      = 'none';
   document.getElementById('success-screen').style.display = 'block';
 }
 

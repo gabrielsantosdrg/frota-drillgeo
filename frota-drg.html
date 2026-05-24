@@ -318,7 +318,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
       <button class="tab-btn" onclick="switchTab('catalog',this)">Modelos</button>
       <button class="tab-btn" onclick="switchTab('history',this)">Histórico</button>
       <button class="tab-btn" onclick="switchTab('qr',this)">QR Code</button>
-      <button class="btn-logout" onclick="doLogout()">Sair</button>
+      <button class="btn-logout" onclick="syncFromSheets()" style="margin-right:4px">⟳ Sincronizar</button><button class="btn-logout" onclick="doLogout()">Sair</button>
     </div>
   </div>
 
@@ -588,6 +588,8 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 
 <script>
 const CREDENTIALS={user:'frotas',pass:'frotadrg'};
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbxE6KbYJwRtAQqoLnCqitP2u-K3kq8pfhF6xTwAGKIaNSaaYgM5zGvCYB-RJE47hjhe/exec';
+
 function load(k,d){try{return JSON.parse(localStorage.getItem('drg_'+k))||d;}catch{return d;}}
 function save(k,v){localStorage.setItem('drg_'+k,JSON.stringify(v));}
 
@@ -599,6 +601,37 @@ let models=load('models',[
   {id:'toyota-hilux',name:'Toyota Hilux',kmInterval:10000,monthInterval:6},
 ]);
 
+async function syncFromSheets(){
+  try{
+    const resp=await fetch(SCRIPT_URL+'?t='+Date.now());
+    const data=await resp.json();
+    if(!Array.isArray(data)||data.length===0)return;
+    const remote=data.map(r=>({
+      id:r.id||Date.now(),
+      datetime:String(r.datetime),
+      plate:String(r.plate),
+      model:String(r.model),
+      project:String(r.project),
+      km:Number(r.km),
+      lastMaint:String(r.lastMaint),
+      tires:String(r.tires),
+      obs:r.obs||''
+    }));
+    const localIds=new Set(records.map(r=>r.datetime+'|'+r.plate));
+    const merged=[...records];
+    remote.forEach(r=>{
+      const key=r.datetime+'|'+r.plate;
+      if(!localIds.has(key)){merged.push(r);localIds.add(key);}
+    });
+    records=merged;
+    save('records',records);
+    renderAll();
+    console.log('Sincronizado com Google Sheets: '+remote.length+' registros');
+  }catch(e){
+    console.warn('Sincronização com Sheets falhou:',e);
+  }
+}
+
 window.addEventListener('load',()=>{
   const p=new URLSearchParams(window.location.search);
   if(p.get('form')==='1'){showScreen('form');updateFormDatetime();populateFormModels();}
@@ -606,7 +639,7 @@ window.addEventListener('load',()=>{
 });
 
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-'+id).classList.add('active');}
-function doLogin(){const u=document.getElementById('login-user').value.trim(),p=document.getElementById('login-pass').value.trim();if(u===CREDENTIALS.user&&p===CREDENTIALS.pass){showScreen('dashboard');renderAll();}else{document.getElementById('login-error').style.display='block';}}
+function doLogin(){const u=document.getElementById('login-user').value.trim(),p=document.getElementById('login-pass').value.trim();if(u===CREDENTIALS.user&&p===CREDENTIALS.pass){showScreen('dashboard');renderAll();syncFromSheets();}else{document.getElementById('login-error').style.display='block';}}
 document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
 function doLogout(){showScreen('login');}
 function switchTab(name,btn){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+name).classList.add('active');}
