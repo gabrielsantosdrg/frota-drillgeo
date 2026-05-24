@@ -799,7 +799,7 @@ function resetForm(){
   updateFormDatetime();
 }
 function generateQR(){
-  const url=window.location.href.split('?')[0]+'?form=1';
+  const url="https://gabrielsantosdrg.github.io/frota-drillgeo/formulario-motorista.html";
   const container=document.getElementById('qr-container');if(!container)return;
   container.innerHTML='';
   try{new QRCode(container,{text:url,width:180,height:180,correctLevel:QRCode.CorrectLevel.M});}
