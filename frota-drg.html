@@ -33,7 +33,7 @@
 body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--black);min-height:100vh;}
 .screen{display:none;min-height:100vh;}
 .screen.active{display:flex;flex-direction:column;}
-
+ 
 /* ── LOGIN ── */
 #screen-login{
   align-items:center;justify-content:center;
@@ -71,7 +71,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 .login-logo-text span{color:var(--blue-light);}
 .login-tagline{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-400);margin-top:4px;}
 .login-divider{width:40px;height:3px;background:var(--blue-light);border-radius:2px;margin:16px 0 32px;}
-
+ 
 .field-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-600);margin-bottom:8px;}
 .field-input{
   width:100%;background:var(--gray-100);border:1.5px solid var(--border);border-radius:6px;
@@ -91,7 +91,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
   resize:vertical;min-height:80px;outline:none;transition:all 0.2s;
 }
 .field-textarea:focus{border-color:var(--blue-light);background:var(--white);}
-
+ 
 .btn-primary{
   width:100%;background:var(--blue);color:var(--white);border:none;
   padding:14px;font-family:'Barlow Condensed',sans-serif;font-weight:700;
@@ -119,10 +119,10 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 }
 .btn-danger:hover{background:var(--danger);color:var(--white);}
 .login-error{color:var(--danger);font-size:12px;margin-top:12px;text-align:center;display:none;}
-
+ 
 /* ── DASHBOARD ── */
 #screen-dashboard{background:var(--off-white);}
-
+ 
 .topbar{
   display:flex;align-items:center;justify-content:space-between;
   padding:0 32px;height:64px;
@@ -138,7 +138,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 .topbar-logo-text span{color:#7db3ff;}
 .topbar-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);}
 .topbar-right{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
-
+ 
 .tab-btn{
   background:transparent;border:none;color:rgba(255,255,255,0.6);
   padding:8px 14px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;
@@ -152,11 +152,11 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
   font-family:'Barlow',sans-serif;
 }
 .btn-logout:hover{border-color:rgba(255,255,255,0.6);color:var(--white);}
-
+ 
 .dash-content{padding:32px;flex:1;}
 .tab-panel{display:none;}
 .tab-panel.active{display:block;}
-
+ 
 /* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:32px;}
 .stat-card{
@@ -170,14 +170,14 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 .stat-value.warning{color:var(--warning);}
 .stat-value.alert{color:var(--orange-alert);}
 .stat-value.success{color:var(--success);}
-
+ 
 /* SECTION */
 .section-title{
   font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
   letter-spacing:2px;text-transform:uppercase;color:var(--gray-600);margin-bottom:16px;
 }
 .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
-
+ 
 /* ALERTS */
 .alert-list{display:flex;flex-direction:column;gap:8px;margin-bottom:32px;}
 .alert-item{
@@ -199,7 +199,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 .alert-badge.critical{background:rgba(220,38,38,0.1);color:var(--danger);}
 .alert-badge.schedule{background:rgba(194,65,12,0.1);color:var(--orange-alert);}
 .alert-badge.warning{background:rgba(217,119,6,0.1);color:var(--warning);}
-
+ 
 /* TABLE */
 .table-wrap{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:auto;margin-bottom:32px;box-shadow:var(--shadow);}
 .fleet-table{width:100%;border-collapse:collapse;min-width:700px;}
@@ -212,16 +212,16 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 .fleet-table tr:last-child td{border-bottom:none;}
 .fleet-table tr:hover td{background:var(--blue-pale2);}
 .plate-cell{font-family:'DM Mono',monospace;font-weight:500;color:var(--blue);}
-
+ 
 .status-pill{display:inline-block;font-size:10px;padding:4px 10px;border-radius:20px;font-weight:600;letter-spacing:0.5px;white-space:nowrap;}
 .status-ok{background:rgba(22,163,74,0.1);color:var(--success);}
 .status-warn{background:rgba(217,119,6,0.1);color:var(--warning);}
 .status-schedule{background:rgba(194,65,12,0.1);color:var(--orange-alert);}
 .status-crit{background:rgba(220,38,38,0.1);color:var(--danger);}
-
+ 
 .km-bar-wrap{width:80px;background:var(--gray-200);border-radius:20px;height:6px;display:inline-block;vertical-align:middle;margin-right:6px;}
 .km-bar{height:6px;border-radius:20px;transition:width 0.3s;}
-
+ 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,28,46,0.6);z-index:100;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
 .modal-overlay.active{display:flex;}
@@ -230,7 +230,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 .modal-actions{display:flex;gap:12px;margin-top:24px;justify-content:flex-end;}
 .form-row{margin-bottom:18px;}
 .inline-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-
+ 
 /* FORM MOTORISTA */
 #screen-form{background:var(--blue-pale2);align-items:center;justify-content:flex-start;padding:40px 20px;}
 .form-card{width:100%;max-width:560px;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:40px;margin:0 auto;box-shadow:var(--shadow-md);}
@@ -252,29 +252,29 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 .success-title{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:var(--blue);margin-bottom:8px;}
 .success-msg{color:var(--gray-600);font-size:14px;}
 .form-meta{font-size:11px;color:var(--gray-400);margin-top:16px;font-family:'DM Mono',monospace;}
-
+ 
 /* CATALOG */
 .catalog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:32px;}
 .catalog-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:20px;box-shadow:var(--shadow);}
 .catalog-model{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--blue);margin-bottom:4px;}
 .catalog-detail{font-size:12px;color:var(--gray-400);margin-bottom:16px;}
 .catalog-actions{display:flex;gap:8px;}
-
+ 
 /* QR */
 .qr-box{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:40px;text-align:center;max-width:420px;box-shadow:var(--shadow);}
 .qr-label{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--blue);margin-bottom:6px;}
 .qr-sub{font-size:12px;color:var(--gray-400);margin-bottom:32px;}
 #qr-container{display:inline-block;background:white;padding:16px;border-radius:4px;margin-bottom:24px;border:1px solid var(--border);}
 .qr-instruction{font-size:12px;color:var(--gray-600);line-height:1.7;}
-
+ 
 /* HISTORY */
 .filter-row{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
 .filter-input{background:var(--white);border:1.5px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--black);font-family:'DM Mono',monospace;font-size:13px;outline:none;transition:all 0.2s;}
 .filter-input:focus{border-color:var(--blue-light);}
-
+ 
 .empty-state{text-align:center;padding:48px;color:var(--gray-400);font-size:14px;}
 .empty-icon{font-size:32px;margin-bottom:12px;}
-
+ 
 @media(max-width:768px){
   .stats-row{grid-template-columns:1fr 1fr;}
   .dash-content{padding:16px;}
@@ -285,7 +285,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
 </style>
 </head>
 <body>
-
+ 
 <!-- LOGIN -->
 <div id="screen-login" class="screen active">
   <div class="login-box">
@@ -302,7 +302,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
     <div class="login-error" id="login-error">Usuário ou senha incorretos.</div>
   </div>
 </div>
-
+ 
 <!-- DASHBOARD -->
 <div id="screen-dashboard" class="screen">
   <div class="topbar">
@@ -321,9 +321,9 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
       <button class="btn-logout" onclick="syncFromSheets()" style="margin-right:4px">⟳ Sincronizar</button><button class="btn-logout" onclick="doLogout()">Sair</button>
     </div>
   </div>
-
+ 
   <div class="dash-content">
-
+ 
     <!-- OVERVIEW -->
     <div class="tab-panel active" id="tab-overview">
       <div class="stats-row">
@@ -333,10 +333,10 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
         <div class="stat-card"><div class="stat-label">Atenção</div><div class="stat-value warning" id="stat-warn">0</div></div>
         <div class="stat-card"><div class="stat-label">Em Dia</div><div class="stat-value success" id="stat-ok">0</div></div>
       </div>
-
+ 
       <div class="section-title">Alertas Ativos</div>
       <div class="alert-list" id="alert-list"></div>
-
+ 
       <div class="section-title">Status da Frota</div>
       <div class="table-wrap">
         <table class="fleet-table">
@@ -349,7 +349,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
         </table>
       </div>
     </div>
-
+ 
     <!-- FLEET -->
     <div class="tab-panel" id="tab-fleet">
       <div class="section-header">
@@ -366,7 +366,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
         </table>
       </div>
     </div>
-
+ 
     <!-- CATALOG -->
     <div class="tab-panel" id="tab-catalog">
       <div class="section-header">
@@ -375,7 +375,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
       </div>
       <div class="catalog-grid" id="catalog-grid"></div>
     </div>
-
+ 
     <!-- HISTORY -->
     <div class="tab-panel" id="tab-history">
       <div class="section-title">Histórico de Apontamentos</div>
@@ -393,7 +393,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
         </table>
       </div>
     </div>
-
+ 
     <!-- QR -->
     <div class="tab-panel" id="tab-qr">
       <div class="section-title">QR Code — Formulário do Motorista</div>
@@ -407,7 +407,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
     </div>
   </div>
 </div>
-
+ 
 <!-- FORMULÁRIO MOTORISTA -->
 <div id="screen-form" class="screen">
   <div class="form-card">
@@ -462,9 +462,9 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
     </div>
   </div>
 </div>
-
+ 
 <!-- MODALS -->
-
+ 
 <!-- ADD MODEL -->
 <div class="modal-overlay" id="modal-add-model">
   <div class="modal-box">
@@ -489,7 +489,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
     </div>
   </div>
 </div>
-
+ 
 <!-- EDIT MODEL -->
 <div class="modal-overlay" id="modal-edit-model">
   <div class="modal-box">
@@ -515,7 +515,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
     </div>
   </div>
 </div>
-
+ 
 <!-- ADD VEHICLE -->
 <div class="modal-overlay" id="modal-add-vehicle">
   <div class="modal-box">
@@ -554,7 +554,7 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
     </div>
   </div>
 </div>
-
+ 
 <!-- UPDATE MAINTENANCE -->
 <div class="modal-overlay" id="modal-update-maint">
   <div class="modal-box">
@@ -585,14 +585,14 @@ body{font-family:'Barlow',sans-serif;background:var(--off-white);color:var(--bla
     </div>
   </div>
 </div>
-
+ 
 <script>
 const CREDENTIALS={user:'frotas',pass:'frotadrg'};
 const SCRIPT_URL='https://script.google.com/macros/s/AKfycbxE6KbYJwRtAQqoLnCqitP2u-K3kq8pfhF6xTwAGKIaNSaaYgM5zGvCYB-RJE47hjhe/exec';
-
+ 
 function load(k,d){try{return JSON.parse(localStorage.getItem('drg_'+k))||d;}catch{return d;}}
 function save(k,v){localStorage.setItem('drg_'+k,JSON.stringify(v));}
-
+ 
 let records=load('records',[]);
 let vehicles=load('vehicles',[]);
 let models=load('models',[
@@ -600,7 +600,7 @@ let models=load('models',[
   {id:'fiat-toro',name:'Fiat Toro',kmInterval:10000,monthInterval:6},
   {id:'toyota-hilux',name:'Toyota Hilux',kmInterval:10000,monthInterval:6},
 ]);
-
+ 
 async function syncFromSheets(){
   try{
     const resp=await fetch(SCRIPT_URL+'?t='+Date.now());
@@ -631,13 +631,13 @@ async function syncFromSheets(){
     console.warn('Sincronização com Sheets falhou:',e);
   }
 }
-
+ 
 window.addEventListener('load',()=>{
   const p=new URLSearchParams(window.location.search);
   if(p.get('form')==='1'){showScreen('form');updateFormDatetime();populateFormModels();}
   generateQR();renderAll();
 });
-
+ 
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('screen-'+id).classList.add('active');}
 function doLogin(){const u=document.getElementById('login-user').value.trim(),p=document.getElementById('login-pass').value.trim();if(u===CREDENTIALS.user&&p===CREDENTIALS.pass){showScreen('dashboard');renderAll();syncFromSheets();}else{document.getElementById('login-error').style.display='block';}}
 document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
@@ -646,7 +646,7 @@ function switchTab(name,btn){document.querySelectorAll('.tab-btn').forEach(b=>b.
 function openModal(id){document.getElementById(id).classList.add('active');}
 function closeModal(id){document.getElementById(id).classList.remove('active');}
 document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('active');});});
-
+ 
 function getVehicleStatus(vehicle){
   const model=models.find(m=>m.id===vehicle.modelId);
   if(!model)return{level:'ok',label:'Em Dia',reason:''};
@@ -674,12 +674,12 @@ function getVehicleStatus(vehicle){
   const labels={ok:'Em Dia',warning:'Atenção',schedule:'Agendar Manutenção',critical:'Manutenção Vencida'};
   return{level,label:labels[level],reason,latestKm,nextMaintKm,kmRemaining};
 }
-
+ 
 function statusClass(l){return{ok:'status-ok',warning:'status-warn',schedule:'status-schedule',critical:'status-crit'}[l];}
 function alertClass(l){return{warning:'warning',schedule:'schedule',critical:'critical'}[l]||'';}
-
+ 
 function renderAll(){renderOverview();renderFleetTab();renderCatalog();renderHistory();populateVehicleModelSelect();}
-
+ 
 function renderOverview(){
   const statuses=vehicles.map(v=>({v,s:getVehicleStatus(v)}));
   document.getElementById('stat-total').textContent=vehicles.length;
@@ -718,7 +718,7 @@ function renderOverview(){
     </tr>`;
   }).join('');
 }
-
+ 
 function renderFleetTab(){
   const tbody=document.getElementById('fleet-tbody');
   if(vehicles.length===0){tbody.innerHTML='<tr><td colspan="8" class="empty-state">Nenhum veículo cadastrado.</td></tr>';return;}
@@ -734,13 +734,13 @@ function renderFleetTab(){
     </div></td>
   </tr>`;}).join('');
 }
-
+ 
 function renderCatalog(){
   const grid=document.getElementById('catalog-grid');
   if(models.length===0){grid.innerHTML='<div class="empty-state"><div class="empty-icon">🚗</div>Nenhum modelo cadastrado.</div>';return;}
   grid.innerHTML=models.map(m=>`<div class="catalog-card"><div class="catalog-model">${m.name}</div><div class="catalog-detail">A cada ${m.kmInterval.toLocaleString('pt-BR')} km &nbsp;·&nbsp; ${m.monthInterval} meses</div><div class="catalog-actions"><button class="btn-ghost" style="font-size:11px;padding:6px 10px" onclick="openEditModel('${m.id}')">Editar</button><button class="btn-danger" style="font-size:11px;padding:6px 10px" onclick="deleteModel('${m.id}')">Remover</button></div></div>`).join('');
 }
-
+ 
 function renderHistory(){
   const fp=(document.getElementById('filter-plate')||{}).value||'';
   const fpr=(document.getElementById('filter-project')||{}).value||'';
@@ -756,7 +756,7 @@ function renderHistory(){
     <td style="color:var(--gray-400);font-size:12px">${r.obs||'—'}</td>
   </tr>`).join('');
 }
-
+ 
 function saveModel(){
   const name=document.getElementById('m-name').value.trim();
   const km=parseInt(document.getElementById('m-km-interval').value);
@@ -806,7 +806,7 @@ function saveMaintenance(){
   vehicles[idx].lastMaintKm=km;vehicles[idx].lastMaintDate=date;vehicles[idx].lastOs=os;
   save('vehicles',vehicles);closeModal('modal-update-maint');renderAll();
 }
-
+ 
 let tireState='';
 function populateFormModels(){const sel=document.getElementById('f-model');if(!sel)return;sel.innerHTML='<option value="">Selecione...</option>'+models.map(m=>`<option value="${m.name}">${m.name}</option>`).join('');}
 function updateFormDatetime(){const el=document.getElementById('form-datetime');if(el)el.textContent='Data/Hora do registro: '+new Date().toLocaleString('pt-BR');}
@@ -841,3 +841,4 @@ function generateQR(){
 </script>
 </body>
 </html>
+ 
