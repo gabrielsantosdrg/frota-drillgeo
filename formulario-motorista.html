@@ -54,7 +54,7 @@ body{
   color:rgba(255,255,255,0.55);
 }
 .card-body{padding:32px;}
-
+ 
 .field-block{margin-bottom:20px;}
 .field-label{
   font-size:11px;font-weight:700;letter-spacing:1.5px;
@@ -85,9 +85,9 @@ body{
   resize:vertical;min-height:90px;outline:none;transition:all 0.2s;
 }
 .field-textarea:focus{border-color:var(--blue-light);background:var(--white);}
-
+ 
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-
+ 
 .radio-group{display:flex;gap:12px;}
 .radio-opt{
   flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
@@ -99,9 +99,9 @@ body{
 .radio-opt input{display:none;}
 .radio-opt.selected-ok{border-color:var(--success);color:var(--success);background:rgba(22,163,74,0.06);}
 .radio-opt.selected-bad{border-color:var(--danger);color:var(--danger);background:rgba(220,38,38,0.06);}
-
+ 
 .divider{height:1px;background:var(--border);margin:24px 0;}
-
+ 
 .btn-submit{
   width:100%;background:var(--blue);color:var(--white);border:none;
   padding:16px;font-family:'Barlow Condensed',sans-serif;
@@ -110,12 +110,12 @@ body{
 }
 .btn-submit:hover{background:var(--blue-mid);}
 .btn-submit:active{transform:scale(0.99);}
-
+ 
 .form-meta{
   font-size:11px;color:var(--gray-400);margin-top:14px;
   font-family:'DM Mono',monospace;text-align:center;
 }
-
+ 
 /* SUCCESS */
 .success-screen{display:none;padding:48px 32px;text-align:center;}
 .success-icon{font-size:64px;margin-bottom:20px;}
@@ -131,7 +131,7 @@ body{
   cursor:pointer;border-radius:8px;transition:all 0.2s;
 }
 .btn-novo:hover{background:var(--blue);color:var(--white);}
-
+ 
 @media(max-width:480px){
   .card-body{padding:24px;}
   .grid-2{grid-template-columns:1fr;}
@@ -146,10 +146,10 @@ body{
     <div class="brand">DRILL<span>GEO</span></div>
     <div class="subtitle">Apontamento Semanal de Frota</div>
   </div>
-
+ 
   <!-- FORMULÁRIO -->
   <div class="card-body" id="form-body">
-
+ 
     <div class="grid-2">
       <div class="field-block">
         <label class="field-label">Placa do Veículo *</label>
@@ -167,24 +167,24 @@ body{
         </select>
       </div>
     </div>
-
+ 
     <div class="field-block">
       <label class="field-label">Projeto / Obra *</label>
       <input class="field-input" id="f-project" type="text" placeholder="Nome da obra ou projeto">
     </div>
-
+ 
     <div class="field-block">
       <label class="field-label">KM Atual — Odômetro *</label>
       <input class="field-input" id="f-km" type="number" inputmode="numeric" placeholder="Ex: 45230">
     </div>
-
+ 
     <div class="field-block">
       <label class="field-label">Data da Última Manutenção Preventiva *</label>
       <input class="field-input" id="f-lastmaint" type="date">
     </div>
-
+ 
     <div class="divider"></div>
-
+ 
     <div class="field-block">
       <label class="field-label">Estado dos Pneus *</label>
       <div class="radio-group">
@@ -196,17 +196,17 @@ body{
         </label>
       </div>
     </div>
-
+ 
     <div class="field-block">
       <label class="field-label">Necessidade de Manutenção</label>
       <div class="field-hint">Há necessidade de manutenção mecânica, funilaria ou outro reparo? Descreva com detalhes — barulhos, amassados, luzes no painel, vazamentos, etc.</div>
       <textarea class="field-textarea" id="f-obs" placeholder="Ex: Luz de óleo acesa, barulho ao frear, amassado no para-choque traseiro..."></textarea>
     </div>
-
+ 
     <button class="btn-submit" onclick="submitForm()">ENVIAR APONTAMENTO</button>
     <div class="form-meta" id="form-datetime"></div>
   </div>
-
+ 
   <!-- SUCESSO -->
   <div class="success-screen" id="success-screen">
     <div class="success-icon">✅</div>
@@ -218,28 +218,28 @@ body{
     <button class="btn-novo" onclick="resetForm()">NOVO REGISTRO</button>
   </div>
 </div>
-
+ 
 <script>
 let tireState = '';
-
+ 
 // Atualiza data/hora ao carregar
 window.addEventListener('load', () => {
   updateDatetime();
 });
-
+ 
 function updateDatetime() {
   const el = document.getElementById('form-datetime');
   if (el) el.textContent = 'Data/Hora do registro: ' + new Date().toLocaleString('pt-BR');
 }
-
+ 
 function selectTire(val) {
   tireState = val;
   document.getElementById('opt-ok').className  = 'radio-opt' + (val === 'ok'  ? ' selected-ok'  : '');
   document.getElementById('opt-bad').className = 'radio-opt' + (val === 'bad' ? ' selected-bad' : '');
 }
-
+ 
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxE6KbYJwRtAQqoLnCqitP2u-K3kq8pfhF6xTwAGKIaNSaaYgM5zGvCYB-RJE47hjhe/exec';
-
+ 
 async function submitForm() {
   const plate     = document.getElementById('f-plate').value.trim().toUpperCase();
   const model     = document.getElementById('f-model').value;
@@ -247,23 +247,23 @@ async function submitForm() {
   const km        = parseInt(document.getElementById('f-km').value);
   const lastMaint = document.getElementById('f-lastmaint').value;
   const obs       = document.getElementById('f-obs').value.trim();
-
+ 
   if (!plate || !model || !project || !km || !lastMaint || !tireState) {
     alert('Por favor, preencha todos os campos obrigatórios (*).');
     return;
   }
-
+ 
   const btn = document.querySelector('.btn-submit');
   btn.textContent = 'ENVIANDO...';
   btn.disabled = true;
-
+ 
   const record = {
     id: Date.now(),
     datetime: new Date().toISOString(),
     plate, model, project, km, lastMaint,
     tires: tireState, obs
   };
-
+ 
   try {
     await fetch(SCRIPT_URL, {
       method: 'POST',
@@ -274,19 +274,19 @@ async function submitForm() {
   } catch (err) {
     console.warn('Erro ao enviar:', err);
   }
-
+ 
   // Salva também localmente como cache
   const records = JSON.parse(localStorage.getItem('drg_records') || '[]');
   records.push(record);
   localStorage.setItem('drg_records', JSON.stringify(records));
-
+ 
   btn.textContent = 'ENVIAR APONTAMENTO';
   btn.disabled = false;
-
+ 
   document.getElementById('form-body').style.display      = 'none';
   document.getElementById('success-screen').style.display = 'block';
 }
-
+ 
 function resetForm() {
   ['f-plate','f-project','f-km','f-lastmaint','f-obs'].forEach(id => {
     document.getElementById(id).value = '';
